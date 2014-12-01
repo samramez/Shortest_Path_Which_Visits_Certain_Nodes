@@ -20,17 +20,36 @@
 			
 			//making an array of items
 			var items = ["meat","eggs","juice"];
+			var order = "start";
+			var startPoint = "start";
+			
+			while ( items.length > 0){
 
-			var minDist = 100;
-			var ClosestItem;
-			var x;
-			for(i=0 ; i<items.length ; i++){
-				if(Dijkstra(roads, "start", items[i]) < minDist){
-					minDist = Dijkstra(roads, "start", items[i]);
-					ClosestItem = items[i];
+				var minDist = 100;
+				var ClosestItem;
+				
+				for(i=0 ; i<items.length ; i++){
+					if(Dijkstra(roads, startPoint, items[i]) < minDist){
+						minDist = Dijkstra(roads, startPoint, items[i]);
+						ClosestItem = items[i];
+					}
 				}
+				//alert("closest item is: " + ClosestItem);
+				startPoint = ClosestItem;
+
+				//adding to the pah
+				order += " --> " + startPoint;
+
+				//deleteing the item from the array
+				var index = items.indexOf(ClosestItem);
+				if (index > -1) {
+			   		items.splice(index, 1);
+				}
+				//console.log(items);
+
 			}
-			console.log("closest item is: " + ClosestItem);
+			console.log(order);
+			
 
 
 
