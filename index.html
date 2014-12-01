@@ -7,6 +7,46 @@
 	</head>
 	<body>
 		<script>
+			makeRoads("start", "apple", 2, "eggs", 2, "nuts", 3, "end", 1);
+			makeRoads("apple", "meat", 1);
+			makeRoads("meat", "eggs", 1, "juice", 1);
+			makeRoads("eggs", "juice", 1, "end", 1, "nuts", 2);
+			makeRoads("juice", "nuts", 2);
+			makeRoads("nuts", "end", 1);
+
+			// makeRoads("B", "C", 3, "D", 6);
+			// makeRoads("C", "D", 3, "E", 5);
+			// makeRoads("D", "E", 1, "F", 3);
+			// makeRoads("E", "F", 1);
+
+
+			// function init() {
+			//   var s = 'A--2-B--6-D--3-F \n';
+			//   s = s + ' \\   |   /|   / \n';
+			//   s = s + '  3  3  3 1  1   \n';
+			//   s = s + '   \\ | /  | /   \n';
+			//   s = s + '     C--5-E      \n';
+			//   //print(s, "pre");
+			// }
+
+			console.log("User wants to buy the following items: meat, eggs and juice");
+			
+			//making an array of items
+			var items = ["meat","eggs","juice"];
+
+			var minDist = 100;
+			var ClosestItem;
+			var x;
+			for(i=0 ; i<items.length ; i++){
+				if(Dijkstra(roads, "start", items[i]) < minDist){
+					minDist = Dijkstra(roads, "start", items[i]);
+					ClosestItem = items[i];
+				}
+			}
+			console.log("closest item is: " + ClosestItem);
+
+
+			/*
 			makeRoads("start", "apple", 2);
 			makeRoads("start","eggs", 2);
 			makeRoads("start","nuts", 3);
@@ -55,6 +95,8 @@
 				}
 			}
 			console.log("closest item is: " + ClosestItem);
+			*/
+
 			
 		</script>
 	</body>
