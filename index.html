@@ -7,11 +7,22 @@
 	</head>
 	<body>
 		<script>
-			makeRoads("start", "apple", 2, "eggs", 2, "nuts", 3, "end", 1);
+			makeRoads("start", "apple", 2);
+			makeRoads("start","eggs", 2);
+			makeRoads("start","nuts", 3);
+			makeRoads("start","end", 1);
+
 			makeRoads("apple", "meat", 1);
-			makeRoads("meat", "eggs", 1, "juice", 1);
-			makeRoads("eggs", "juice", 1, "end", 1, "nuts", 2);
+
+			makeRoads("meat", "eggs", 1);
+			makeRoads("meat", "juice", 1);
+
+			makeRoads("eggs", "juice", 1);
+			makeRoads("eggs", "end", 1);
+			makeRoads("eggs", "nuts", 2);
+
 			makeRoads("juice", "nuts", 2);
+
 			makeRoads("nuts", "end", 1);
 
 			// makeRoads("B", "C", 3, "D", 6);
@@ -37,12 +48,11 @@
 			var minDist = 100;
 			var ClosestItem;
 			var x;
-			for(x in items){
-				if(Dijkstra(roads, "start", x) < minDist){
-					minDist = Dijkstra(roads, "start", x);
-					ClosestItem = x;
+			for(i=0 ; i<items.length ; i++){
+				if(Dijkstra(roads, "start", items[i]) < minDist){
+					minDist = Dijkstra(roads, "start", items[i]);
+					ClosestItem = items[i];
 				}
-
 			}
 			console.log("closest item is: " + ClosestItem);
 			
