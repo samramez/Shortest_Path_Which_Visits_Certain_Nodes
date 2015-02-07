@@ -1,4 +1,4 @@
-# Shortest Path Between Multiple Nodes in the Graph
+# Finding the shortest path in a graph which visits certain nodes
 
 ###### To run this code, you need to open _"Inspect Elements"_ section in your favorite browser and observe the results in JavaScript Console.
 
