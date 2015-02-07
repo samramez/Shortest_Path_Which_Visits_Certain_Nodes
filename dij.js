@@ -1,3 +1,4 @@
+// Implemeting Dijkstra's algorithm
 function Dijkstra(roads, source, dest) {
   var inf = Number.POSITIVE_INFINITY;
   var distance = {};
@@ -59,6 +60,7 @@ function Dijkstra(roads, source, dest) {
   }
 }
 
+// Graph implementation
 var roads = {};
 function makeRoad(from, to, length) {
   function addRoad(from, to) {
